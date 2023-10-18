@@ -1,19 +1,21 @@
-import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import swal from "sweetalert";
+import { updateProfile } from "firebase/auth";
 import { BsGoogle } from "react-icons/bs";
 import { GrFacebook } from "react-icons/gr";
-import { AuthContext } from '../providers/AuthProvider';
-import swal from 'sweetalert';
-import { updateProfile } from "firebase/auth";
-import Navbar from '../home/Navbar';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Navbar from "../home/Navbar";
+import { AuthContext } from "../providers/AuthProvider";
 
 const SignUp = () => {
 
-    const { createUser, user, googleSignUp, facebookSignUp } = useContext(AuthContext);
+    const { createUser, user, googleSignUp, facebookSignUp, } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+
+
 
     const handleGoogle = () => {
         googleSignUp()
@@ -35,11 +37,12 @@ const SignUp = () => {
         })
     }
 
+
     const handleSignUp = e => {
         e.preventDefault();
         const form = e.target;
-        const username = form.get('username');
-        const photoUrl = form.get('photoUrl');
+        const username = form.username.value
+        const photoUrl = form.photoUrl.value
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
@@ -85,9 +88,9 @@ const SignUp = () => {
                             <form onSubmit={handleSignUp} className="card-body">
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Name</span>
+                                        <span className="label-text">Username</span>
                                     </label>
-                                    <input type="text" name="name" placeholder="Your name" className="input input-bordered" />
+                                    <input type="text" name="username" placeholder="Enter  username" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
