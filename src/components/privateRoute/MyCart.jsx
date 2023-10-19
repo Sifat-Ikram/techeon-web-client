@@ -1,0 +1,47 @@
+import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import Navbar from "../home/Navbar";
+
+
+const MyCart = () => {
+    const events = useLoaderData();
+    const [addedEvents, setAddedEvents] = useState([]);
+
+    const getStoredEvent = () =>{
+        const storedEvent = localStorage.getItem('event-id');
+        if(storedEvent){
+            return JSON.parse(storedEvent);
+        }
+        return [];
+    }
+
+    useEffect(() => {
+        const storedEventId = getStoredEvent();
+        if (events.length) {
+            const storedEvent = [];
+            for (const id of storedEventId) {
+                const event = events.find(event => event.id === id);
+                if (event) {
+                    storedEvent.push(event);
+                }
+            }
+            setAddedEvents(storedEvent);
+        }
+    }, [])
+
+    return (
+        <div>
+            <Navbar></Navbar>
+            <div>
+                <h1 className="text-3xl font-semibold text-left mb-10">Added Events</h1>
+                <div className="grid lg:grid-cols-2 grid-cols-1 mt-10 gap-10">
+                    {
+                        addedEvents.map(item => <DashboardItems key={item.id} item={item}></DashboardItems>)
+                    }
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default MyCart;

@@ -115,7 +115,7 @@ const SignUp = () => {
                                     <button><GrFacebook onClick={handleFacebook} className='text-3xl text-[#3c3ff2]'></GrFacebook></button>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary font-semibold"><Link to={'/'}>Sign up</Link></button>
+                                    <button className="btn btn-primary font-semibold">Sign up</button>
                                 </div>
                                 {
                                     error && <p className="text-red-800 text-base">{error}</p>
