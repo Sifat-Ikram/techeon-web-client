@@ -19,7 +19,7 @@ const Navbar = () => {
     <li><NavLink style={({ isActive }) => ({ background: isActive ? "#3c3ff2" : "" })} className="hover:bg-[#3c3ff2] hover:text-white font-bold text-[#3c3ff2] rounded-md" to={'/'}>Home</NavLink></li>
     {
       user && <>
-        <li><NavLink style={({ isActive }) => ({ background: isActive ? "#3c3ff2" : "" })} className="hover:bg-[#3c3ff2] hover:text-white font-bold text-[#3c3ff2] rounded-md">Add Product</NavLink></li>
+        <li><NavLink style={({ isActive }) => ({ background: isActive ? "#3c3ff2" : "" })} className="hover:bg-[#3c3ff2] hover:text-white font-bold text-[#3c3ff2] rounded-md" to={'/addProduct'}>Add Product</NavLink></li>
         <li><NavLink style={({ isActive }) => ({ background: isActive ? "#3c3ff2" : "" })} className="hover:bg-[#3c3ff2] hover:text-white font-bold text-[#3c3ff2] rounded-md" to={'/myCart'}>My Cart</NavLink></li>
       </>
     }
