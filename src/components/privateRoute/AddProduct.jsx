@@ -1,5 +1,5 @@
 import Navbar from "../home/Navbar";
-
+import swal from "sweetalert";
 
 const AddProduct = () => {
 
@@ -14,9 +14,24 @@ const AddProduct = () => {
         const price = form.product_price.value;
         const rating = form.product_rating.value;
         const description = form.description.value;
-        
+
         const newProduct = { productName, photoUrl, brandName, brandType, price, rating, description };
         console.log(newProduct);
+    
+        fetch('http://localhost:4321/product', {
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(newProduct)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data);
+            if(data.insertedId){
+                swal("Congratulations!!!", "Product added successfully", "success")
+            }
+        })
     }
 
     return (

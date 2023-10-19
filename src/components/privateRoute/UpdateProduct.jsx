@@ -2,6 +2,21 @@ import React from 'react';
 import Navbar from '../home/Navbar';
 
 const UpdateProduct = () => {
+    const handleUpdate = e =>{
+        e.preventDefault();
+        const form = e.target;
+
+        const productName = form.product_name.value;
+        const photoUrl = form.photoUrl.value;
+        const brandName = form.brand_name.value;
+        const brandType = form.brand_type.value;
+        const price = form.product_price.value;
+        const rating = form.product_rating.value;
+        const description = form.description.value;
+
+        const newProduct = { productName, photoUrl, brandName, brandType, price, rating, description };
+        console.log(newProduct);
+    }
     return (
         <div>
             <Navbar></Navbar>
@@ -51,15 +66,7 @@ const UpdateProduct = () => {
                                 <input type="text" name="product_rating" placeholder="Type rating here" className="input input-bordered w-full max-w-xs" />
                             </div>
                         </div>
-                        <div className="flex justify-center">
-                            <div className="form-control w-full space-y-5">
-                                <label className=" text-center">
-                                    <span className=" text-center text-xl font-semibold">Description</span>
-                                </label>
-                                <input type="text" name="description" placeholder="Write description here" className="input input-bordered w-full mx-auto max-w-lg" />
-                            </div>
-                        </div>
-                        <button className="btn btn-primary">Add Product</button>
+                        <button onClick={handleUpdate} className="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
