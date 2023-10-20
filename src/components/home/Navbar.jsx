@@ -23,13 +23,14 @@ const Navbar = () => {
         <li><NavLink style={({ isActive }) => ({ background: isActive ? "#3c3ff2" : "" })} className="hover:bg-[#3c3ff2] hover:text-white font-bold text-[#3c3ff2] rounded-md" to={'/myCart'}>My Cart</NavLink></li>
       </>
     }
+    <li><NavLink style={({ isActive }) => ({ background: isActive ? "#3c3ff2" : "" })} className="hover:bg-[#3c3ff2] hover:text-white font-bold text-[#3c3ff2] rounded-md" to={'/about'}>About us</NavLink></li>
     <li><NavLink style={({ isActive }) => ({ background: isActive ? "#3c3ff2" : "" })} className="hover:bg-[#3c3ff2] hover:text-white font-bold text-[#3c3ff2] rounded-md" to={'/signIn'}>Sign in</NavLink></li>
   </>
   return (
     <div>
       <div className="navbar bg-base-100 items-center">
         <div className="navbar-start">
-          <div className="dropdown flex lg:hidden mt-3">
+          <div className="dropdown flex lg:hidden mt-3 items-center">
             <label tabIndex={0} className="btn btn-ghost h-full">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-[#3c3ff2] font-black" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
@@ -37,10 +38,11 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
+          <img src="https://i.ibb.co/CndQNd4/technology-logo-template-png-37578.jpg" className="h-24 w-24" alt="" />
           <a href="/" className="h-full normal-case font-semibold text-6xl text-cyan-500">TechEon</a>
         </div>
         <div className="navbar-center flex">
-          <ul className="menu menu-horizontal px-1 gap-3 mt-3 hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 gap-1 ml-5 mt-3 hidden lg:flex">
             {navLinks}
           </ul>
         </div>
