@@ -5,9 +5,10 @@ import Navbar from "../home/Navbar";
 
 const BrandProducts = () => {
     const products = useLoaderData();
+    const { id } = useParams();
     const getProduct = () => {
         if (products) {
-            return products.filter(item => item.brandName.includes("Apple"));
+            return products.filter(item => item.brandName === id);
         }
     }
 

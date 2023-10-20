@@ -25,7 +25,7 @@ const ProductItems = ({ product }) => {
                         <Link to={`/details/${_id}`}>
                             <button className="btn-primary py-2 px-4 rounded-lg font-semibold">Details</button>
                         </Link>
-                        <Link to={'/updateProduct'}>
+                        <Link to={`/updateProduct/${_id}`}>
                             <button className="btn-accent text-white py-2 px-4 rounded-lg font-semibold">Update</button>
                         </Link>
                     </div>
