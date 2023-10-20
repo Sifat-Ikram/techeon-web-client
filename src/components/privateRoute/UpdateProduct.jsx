@@ -1,13 +1,15 @@
 import React from 'react';
 import Navbar from '../home/Navbar';
 import { useLoaderData } from 'react-router-dom';
+import swal from "sweetalert";
+import Swal from 'sweetalert2';
 
 const UpdateProduct = () => {
     const product = useLoaderData();
     const { _id, productName, photoUrl, brandName, brandType, price, rating } = product;
     const handleUpdate = e =>{
         e.preventDefault();
-        const form = e.target;
+        const form = e.currentTarget;
         
         const productName = form.product_name.value;
         const photoUrl = form.photoUrl.value;
@@ -29,8 +31,12 @@ const UpdateProduct = () => {
         .then(res => res.json())
         .then(data =>{
             console.log(data);
-            if(data.modifiedCount > 0){
-                swal("Congratulations!!!", "Product updated successfully", "success")
+            if(data.modifiedCount){
+                Swal.fire(
+                    'Congratulations!!!',
+                    'Product is updated',
+                    'success'
+                  )
             }
         })
     }
@@ -40,7 +46,7 @@ const UpdateProduct = () => {
             <div className="w-10/12 mx-auto mt-14 p-5 space-y-10">
                 <h1 className="text-5xl font-semibold">Update Product</h1>
                 <div className="rounded-md w-11/12 mx-auto p-5">
-                    <form className="space-y-10">
+                    <form onSubmit={handleUpdate} className="space-y-10">
                         <div className="flex justify-between">
                             <div className="form-control w-full max-w-xs">
                                 <label className="label">
@@ -83,7 +89,7 @@ const UpdateProduct = () => {
                                 <input type="text" name="product_rating" defaultValue={rating} placeholder="Type rating here" className="input input-bordered w-full max-w-xs" />
                             </div>
                         </div>
-                        <button onClick={handleUpdate} className="btn btn-primary">Submit</button>
+                        <button className="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>

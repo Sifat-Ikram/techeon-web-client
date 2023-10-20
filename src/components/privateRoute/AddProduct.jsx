@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import Navbar from "../home/Navbar";
 import swal from "sweetalert";
 
@@ -29,7 +30,11 @@ const AddProduct = () => {
         .then(data =>{
             console.log(data);
             if(data.insertedId){
-                swal("Congratulations!!!", "Product added successfully", "success")
+                Swal.fire(
+                    'Great!!!',
+                    'This product is added successfully',
+                    'success'
+                  )
             }
         })
     }

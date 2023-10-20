@@ -1,6 +1,7 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import ProductItems from "./ProductItems";
 import Navbar from "../home/Navbar";
+import swal from "sweetalert";
 
 
 const BrandProducts = () => {
@@ -9,6 +10,9 @@ const BrandProducts = () => {
     const getProduct = () => {
         if (products) {
             return products.filter(item => item.brandName === id);
+        }
+        else{
+            swal("Ooops!!!", "there is no product here yet", "error")
         }
     }
 
