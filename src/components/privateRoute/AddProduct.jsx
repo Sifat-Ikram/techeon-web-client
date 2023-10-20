@@ -17,7 +17,7 @@ const AddProduct = () => {
         const description = form.description.value;
 
         const newProduct = { productName, photoUrl, brandName, brandType, price, rating, description };
-        console.log(newProduct);
+        
     
         fetch('http://localhost:4321/product', {
             method: 'POST',
@@ -28,7 +28,7 @@ const AddProduct = () => {
         })
         .then(res => res.json())
         .then(data =>{
-            console.log(data);
+            
             if(data.insertedId){
                 Swal.fire(
                     'Great!!!',
