@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path:'/myCart',
         element: <MyCart></MyCart>,
-        loader: (()=> fetch('http://localhost:4321/product'))
+        loader: (()=> fetch('https://techeon-web-server-41gzrlvkn-md-sifat-ikrams-projects.vercel.app/product'))
       },
       {
         path: '/addProduct',
@@ -51,17 +51,17 @@ const router = createBrowserRouter([
       {
         path: '/updateProduct/:id',
         element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:4321/product/${params.id}`)
+        loader: ({params}) => fetch(`https://techeon-web-server-41gzrlvkn-md-sifat-ikrams-projects.vercel.app/product/${params.id}`)
       },
       {
         path: "/:id",
         element: <PrivateRoute><BrandProducts></BrandProducts></PrivateRoute>,
-        loader: (()=> fetch('http://localhost:4321/product'))
+        loader: (()=> fetch('https://techeon-web-server-41gzrlvkn-md-sifat-ikrams-projects.vercel.app/product'))
       },
       {
         path: '/details/:id',
         element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
-        loader: (() => fetch('http://localhost:4321/product'))
+        loader: (() => fetch('https://techeon-web-server-41gzrlvkn-md-sifat-ikrams-projects.vercel.app/product'))
       },
       {
         path: '/about',

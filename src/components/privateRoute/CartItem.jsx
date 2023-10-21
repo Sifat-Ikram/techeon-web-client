@@ -14,7 +14,7 @@ const CartItem = ({ item }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:4321/product/${_id}`, {
+                fetch(`https://techeon-web-server-41gzrlvkn-md-sifat-ikrams-projects.vercel.app/product/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

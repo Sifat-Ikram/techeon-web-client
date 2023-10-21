@@ -21,7 +21,7 @@ const UpdateProduct = () => {
         const updatedProduct = { productName, photoUrl, brandName, brandType, price, rating };
         console.log(updatedProduct);
 
-        fetch(`http://localhost:4321/product/${_id}`, {
+        fetch(`https://techeon-web-server-41gzrlvkn-md-sifat-ikrams-projects.vercel.app/product/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type' : 'application/json'

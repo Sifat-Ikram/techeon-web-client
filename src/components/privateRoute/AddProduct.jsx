@@ -19,7 +19,7 @@ const AddProduct = () => {
         const newProduct = { productName, photoUrl, brandName, brandType, price, rating, description };
         
     
-        fetch('http://localhost:4321/product', {
+        fetch('https://techeon-web-server-41gzrlvkn-md-sifat-ikrams-projects.vercel.app/product', {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
